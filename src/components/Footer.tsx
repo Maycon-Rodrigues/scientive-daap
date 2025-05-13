@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 py-10">
@@ -12,17 +10,11 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">
-              Twitter
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Discord
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a
+              href="https://github.com/scientiveDAO"
+              className="hover:text-white transition-colors"
+            >
               GitHub
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Medium
             </a>
           </div>
         </div>

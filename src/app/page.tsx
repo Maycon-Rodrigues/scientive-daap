@@ -1,55 +1,69 @@
 "use client";
 
-import Image from "next/image";
-import { ConnectButton } from "thirdweb/react";
-import thirdwebIcon from "@public/thirdweb.svg";
-import { client } from "./client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import AnimatedHero from "@/components/AnimatedHero";
+import { motion } from "framer-motion";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Home() {
+  const fadeInUpVariants = {
+    hidden: { y: 60, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const staggerContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-900 to-indigo-900 text-white py-20">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col items-center text-center space-y-6">
-            <h1 className="text-5xl font-bold leading-tight md:text-6xl">
-              ScientiveDAO
-            </h1>
-            <p className="text-xl md:text-2xl max-w-3xl opacity-90">
-              Financiamento científico descentralizado, anônimo e transparente
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-indigo-900 hover:bg-gray-200 hover:text-indigo-900"
-              >
-                <Link href="/register">Submeter Proposta</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="text-indigo-900 border-white hover:bg-white/10 hover:text-white"
-              >
-                <Link href="#saiba-mais">Saiba Mais</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Header />
+
+      {/* Hero Section Animada */}
+      <AnimatedHero />
 
       {/* Como Funciona */}
       <section id="saiba-mais" className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Como Funciona
-          </h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUpVariants}
+          >
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Como Funciona
+            </h2>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-10">
-            <div className="flex flex-col items-center text-center p-6 rounded-lg bg-gray-50">
+          <motion.div
+            className="grid md:grid-cols-3 gap-8 mt-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.div
+              className="flex flex-col items-center text-center p-6 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300"
+              variants={fadeInUpVariants}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
               <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -73,9 +87,13 @@ export default function Home() {
                 Pesquisadores comprovam seu vínculo com instituições através de
                 provas de conhecimento-zero, mantendo sua identidade protegida.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col items-center text-center p-6 rounded-lg bg-gray-50">
+            <motion.div
+              className="flex flex-col items-center text-center p-6 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300"
+              variants={fadeInUpVariants}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
               <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -99,9 +117,13 @@ export default function Home() {
                 A comunidade avalia e vota nas propostas científicas, decidindo
                 democraticamente quais projetos receberão financiamento.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col items-center text-center p-6 rounded-lg bg-gray-50">
+            <motion.div
+              className="flex flex-col items-center text-center p-6 rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-300"
+              variants={fadeInUpVariants}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
               <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -125,20 +147,37 @@ export default function Home() {
                 Os fundos são distribuídos de forma transparente e verificável
                 através da blockchain, garantindo rastreabilidade e confiança.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Benefícios */}
-      <section className="py-20 bg-gray-50">
+      <section id="beneficios" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Por Que Escolher a ScientiveDAO
-          </h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUpVariants}
+          >
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Por Que Escolher a ScientiveDAO
+            </h2>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-10">
-            <div className="flex space-x-4">
+          <motion.div
+            className="grid md:grid-cols-2 gap-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.div
+              className="flex space-x-4"
+              variants={fadeInUpVariants}
+              whileHover={{ x: 5, transition: { duration: 0.2 } }}
+            >
               <div className="flex-shrink-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -164,9 +203,13 @@ export default function Home() {
                   identidade, evitando vieses ou discriminação.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="flex space-x-4">
+            <motion.div
+              className="flex space-x-4"
+              variants={fadeInUpVariants}
+              whileHover={{ x: 5, transition: { duration: 0.2 } }}
+            >
               <div className="flex-shrink-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -192,9 +235,13 @@ export default function Home() {
                   de votação democrática e transparente.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="flex space-x-4">
+            <motion.div
+              className="flex space-x-4"
+              variants={fadeInUpVariants}
+              whileHover={{ x: 5, transition: { duration: 0.2 } }}
+            >
               <div className="flex-shrink-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -220,9 +267,13 @@ export default function Home() {
                   eliminando burocracias e intermediários.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="flex space-x-4">
+            <motion.div
+              className="flex space-x-4"
+              variants={fadeInUpVariants}
+              whileHover={{ x: 5, transition: { duration: 0.2 } }}
+            >
               <div className="flex-shrink-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -248,74 +299,59 @@ export default function Home() {
                   credibilidade dos pesquisadores sem expor suas identidades.
                 </p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-indigo-900 text-white">
         <div className="container mx-auto px-4 max-w-5xl text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Pronto para revolucionar o financiamento científico?
-          </h2>
-          <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90">
-            Junte-se à ScientiveDAO e seja parte de uma nova era para a ciência
-            - transparente, descentralizada e acessível.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-indigo-900 hover:bg-gray-200 hover:text-indigo-900"
-            >
-              <Link href="/register">Submeter Proposta</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="text-indigo-900 border-white hover:bg-white/10 hover:text-white"
-            >
-              <Link href="#saiba-mais">Entrar na Comunidade</Link>
-            </Button>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <h2 className="text-3xl font-bold mb-6">
+              Pronto para revolucionar o financiamento científico?
+            </h2>
+            <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90">
+              Junte-se à ScientiveDAO e seja parte de uma nova era para a
+              ciência - transparente, descentralizada e acessível.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-indigo-900 hover:bg-gray-200 hover:text-indigo-900"
+                >
+                  <Link href="/register">Submeter Proposta</Link>
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="text-indigo-900 border-white hover:bg-white/10 hover:text-white"
+                >
+                  <Link href="#saiba-mais">Entrar na Comunidade</Link>
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-10">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col md:flex-row md:justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <h2 className="text-2xl font-bold text-white">ScientiveDAO</h2>
-              <p className="text-sm mt-2 text-gray-400">
-                Financiamento científico descentralizado
-              </p>
-            </div>
-            <div className="flex space-x-6">
-              <a href="#" className="hover:text-white transition-colors">
-                Twitter
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Discord
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                GitHub
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Medium
-              </a>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-sm text-center text-gray-500">
-            <p>
-              &copy; {new Date().getFullYear()} ScientiveDAO. Todos os direitos
-              reservados.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
