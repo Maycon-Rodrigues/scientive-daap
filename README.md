@@ -1,59 +1,87 @@
+# ScientiveDAO Frontend
 
-![tw-banner](https://github.com/thirdweb-example/next-starter/assets/57885104/20c8ce3b-4e55-4f10-ae03-2fe4743a5ee8)
+![ScientiveDAO Banner](https://via.placeholder.com/1200x400/4338ca/FFFFFF?text=ScientiveDAO)
 
-# thirdweb-next-starter
+## Sobre
 
-Starter template to build an onchain react native app with [thirdweb](https://thirdweb.com/) and [next](https://nextjs.org/).
+Este é o frontend da plataforma ScientiveDAO, desenvolvido com Next.js e Thirdweb SDK. A ScientiveDAO é uma organização autônoma descentralizada que financia pesquisas científicas de forma transparente e anônima, utilizando provas de conhecimento-zero para verificação.
 
-## Installation
+## Funcionalidades Principais
 
-Install the template using [thirdweb create](https://portal.thirdweb.com/cli/create)
+- Landing page com informações sobre a DAO e seu funcionamento
+- Sistema de cadastro para pesquisadores com verificação anônima via ZK proofs
+- Formulário de submissão de propostas científicas
+- Integração com carteiras Web3 para gerenciamento de fundos
 
-```bash
-  npx thirdweb create app --next
-```
+## Tecnologias
 
-## Environment Variables
+- [Next.js](https://nextjs.org) (App Router)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Thirdweb SDK](https://portal.thirdweb.com)
+- [shadcn/ui](https://ui.shadcn.com) (componentes de UI)
 
-To run this project, you will need to add the following environment variables to your .env file:
+## Requisitos
 
-`CLIENT_ID`
+- Node.js 18+
+- Yarn ou npm
 
-To learn how to create a client ID, refer to the [client documentation](https://portal.thirdweb.com/typescript/v5/client). 
+## Instalação
 
-## Run locally
-
-Install dependencies
+1. Instale as dependências:
 
 ```bash
 yarn
 ```
 
-Start development server
+2. Configure as variáveis de ambiente (copie o arquivo de exemplo):
+
+```bash
+cp .env.example .env.local
+```
+
+3. Adicione seu CLIENT_ID da Thirdweb ao arquivo `.env.local`:
+
+```
+NEXT_PUBLIC_TEMPLATE_CLIENT_ID=thirdweb_client_id_here
+THIRDWEB_SECRET_KEY=thirdweb_secret
+```
+
+## Desenvolvimento
+
+Inicie o servidor de desenvolvimento:
 
 ```bash
 yarn dev
 ```
 
-Create a production build
+Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver o resultado.
+
+## Build
+
+Crie uma versão de produção:
 
 ```bash
 yarn build
 ```
 
-Preview the production build
+E inicie o servidor:
 
 ```bash
 yarn start
 ```
 
-## Resources
+## Estrutura do Projeto
 
-- [Documentation](https://portal.thirdweb.com/typescript/v5)
-- [Templates](https://thirdweb.com/templates)
-- [YouTube](https://www.youtube.com/c/thirdweb)
-- [Blog](https://blog.thirdweb.com)
-
-## Need help?
-
-For help or feedback, please [visit our support site](https://thirdweb.com/support)
+```
+src/
+├── app/                   # Páginas e rotas (Next.js App Router)
+│   ├── page.tsx           # Landing page
+│   ├── register/          # Registro e submissão de propostas
+│   └── layout.tsx         # Layout principal da aplicação
+├── components/            # Componentes React reutilizáveis
+│   ├── ui/                # Componentes de UI (shadcn)
+│   ├── Header.tsx         # Cabeçalho da aplicação
+│   └── Footer.tsx         # Rodapé da aplicação
+└── lib/                   # Utilitários e funções auxiliares
+```
