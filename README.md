@@ -1,6 +1,6 @@
 # ScientiveDAO Frontend
 
-![ScientiveDAO Banner](https://via.placeholder.com/1200x400/4338ca/FFFFFF?text=ScientiveDAO)
+![ScientiveDAO Banner](https://raw.githubusercontent.com/scientiveDAO/frontend/refs/heads/main/public/scientive.png)
 
 ## Sobre
 
