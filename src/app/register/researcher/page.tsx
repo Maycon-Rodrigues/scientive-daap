@@ -249,8 +249,8 @@ export default function Register() {
                         {...register("institution")}
                       >
                         <option value="">Selecione uma instituição</option>
-                        <option value="CNPq">CNPq</option>
-                        <option value="CAPES">CAPES</option>
+                        <option value="UFRJ">UFRJ</option>
+                        <option value="UERJ">UERJ</option>
                       </select>
                       {errors.institution && (
                         <p className="text-sm text-red-500 mt-1">
@@ -379,6 +379,7 @@ export default function Register() {
                       <Input
                         id="duration"
                         type="number"
+                        min={1}
                         placeholder="12"
                         {...register("duration")}
                       />
