@@ -99,7 +99,7 @@ export default function AnimatedHero() {
                 size="lg"
                 className="bg-white text-indigo-900 hover:bg-gray-200 hover:text-indigo-900 transition-all duration-300"
               >
-                <Link href="/register">Submeter Proposta</Link>
+                <Link href="/register/researcher">Submeter Proposta</Link>
               </Button>
             </motion.div>
 
