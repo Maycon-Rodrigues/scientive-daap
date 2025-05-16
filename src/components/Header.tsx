@@ -29,10 +29,10 @@ export default function Header() {
               Benefícios
             </Link>
             <Link
-              href="/register"
+              href="/proposal/list"
               className="hover:text-indigo-200 transition-colors"
             >
-              Submeter Proposta
+              Propostas
             </Link>
           </nav>
 
@@ -82,11 +82,11 @@ export default function Header() {
                 Benefícios
               </Link>
               <Link
-                href="/register"
+                href="/proposal/list"
                 className="hover:text-indigo-200 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Submeter Proposta
+                Propostas
               </Link>
             </nav>
           </div>
